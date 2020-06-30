@@ -83,7 +83,7 @@
 
                     <div <?php post_class( 'post' ); ?>>
 
-						<?php if ( ! get_post_format() == 'aside' ) : 
+						<?php if ( ! in_array( get_post_format(), array( 'aside', 'quote' ) ) && ! empty( get_the_title() )  ) : 
 
 							$post_title_elem = is_single() ? 'h1' : 'h2';
 						

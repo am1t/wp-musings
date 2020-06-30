@@ -21,7 +21,7 @@ if ( ! function_exists( 'musings_setup' ) ) :
 		add_theme_support( 'title-tag' );
 		
 		// Post formats
-		add_theme_support( 'post-formats', array( 'aside' ) );
+		add_theme_support( 'post-formats', array( 'aside', 'link', 'quote' ) );
 		
 		// Register nav menu
 		register_nav_menu( 'primary-menu', __( 'Primary Menu', 'musings' ) );
@@ -43,7 +43,8 @@ if ( ! function_exists( 'musings_load_style' ) ) :
 		$theme_version = wp_get_theme( 'musings' )->get( 'Version' );
 
 		wp_register_style( 'musings_fonts', '//fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700' );
-		wp_enqueue_style( 'musings_style', get_stylesheet_uri(), array( 'musings_fonts' ) );		
+		wp_register_style( 'musings_heading_fonts', '//fonts.googleapis.com/css?family=Playfair+Display:wght@500' );
+		wp_enqueue_style( 'musings_style', get_stylesheet_uri(), array( 'musings_fonts', 'musings_heading_fonts') );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'musings_load_style' );
